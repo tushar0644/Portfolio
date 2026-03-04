@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tushar Bhati | UI/UX & Visual Designer</title>
-    <meta name="description" content="Portfolio of Tushar Bhati - UI/UX and Visual Designer specializing in user-centered design, brand identity, and digital marketing creatives.">
+    <title>Tushar Bhati | UI/UX Designer</title>
+    <meta name="description" content="Portfolio of Tushar Bhati - UI/UX Designer specializing in user-centered design, research-driven solutions, and intuitive digital experiences.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,17 +23,17 @@
                         serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        primary: '#8b5cf6',      // Violet 500
-                        secondary: '#ec4899',    // Pink 500
-                        accent: '#06b6d4',       // Cyan 500
-                        dark: '#0f172a',         // Slate 900
-                        surface: '#1e293b',      // Slate 800
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#06b6d4',
+                        dark: '#0f172a',
+                        surface: '#1e293b',
+                        muted: '#64748b',
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.8s ease-out',
-                        'slide-up': 'slideUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
                         'float': 'float 6s ease-in-out infinite',
-                        'gradient-x': 'gradientX 15s ease infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -41,16 +41,12 @@
                             '100%': { opacity: '1' },
                         },
                         slideUp: {
-                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
                             '100%': { transform: 'translateY(0)', opacity: '1' },
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        gradientX: {
-                            '0%, 100%': { 'background-position': '0% 50%' },
-                            '50%': { 'background-position': '100% 50%' },
+                            '50%': { transform: 'translateY(-10px)' },
                         }
                     }
                 }
@@ -62,117 +58,116 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
+        /* CSS Variables for consistency */
+        :root {
+            --color-primary: #6366f1;
+            --color-secondary: #8b5cf6;
+            --color-accent: #06b6d4;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
         ::-webkit-scrollbar-track {
             background: #0f172a;
         }
         ::-webkit-scrollbar-thumb {
-            background: #8b5cf6;
-            border-radius: 5px;
+            background: #6366f1;
+            border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #7c3aed;
+            background: #4f46e5;
         }
-        
+
+        /* Typography improvements */
+        .text-balance {
+            text-wrap: balance;
+        }
+
+        /* Gradient text */
         .gradient-text {
-            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #06b6d4 100%);
-            background-size: 200% 200%;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradientX 5s ease infinite;
         }
-        
+
+        /* Glass morphism */
         .glass {
-            background: rgba(30, 41, 59, 0.4);
+            background: rgba(30, 41, 59, 0.6);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: var(--transition-smooth);
         }
-        
         .glass:hover {
-            border-color: rgba(139, 92, 246, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
         }
-        
+
+        /* Card hover effects */
         .project-card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition-smooth);
         }
         .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.25);
-        }
-        
-        .skill-pill {
-            transition: all 0.3s ease;
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-        }
-        .skill-pill:hover {
-            transform: scale(1.05);
-            background: rgba(139, 92, 246, 0.2);
-            border-color: rgba(139, 92, 246, 0.4);
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
-        }
-        
-        .cursor-blink {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-        
-        .profile-image {
-            transition: transform 0.5s ease;
-        }
-        .profile-container:hover .profile-image {
-            transform: scale(1.05);
+            box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
         }
 
-        .process-step {
-            position: relative;
-        }
-        .process-step::after {
-            content: '';
-            position: absolute;
-            top: 3rem;
-            left: 50%;
-            width: 2px;
-            height: calc(100% - 3rem);
-            background: linear-gradient(to bottom, #8b5cf6, transparent);
-            transform: translateX(-50%);
-        }
-        .process-step:last-child::after {
-            display: none;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.05));
-            border-left: 4px solid #8b5cf6;
-        }
-        
-        .glow-violet {
-            box-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
-        }
-        
+        /* Button styles */
         .btn-primary {
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            transition: var(--transition-smooth);
         }
         .btn-primary:hover {
-            box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.5);
             transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-            transition: all 0.3s ease;
+            background: transparent;
+            border: 1.5px solid #6366f1;
+            transition: var(--transition-smooth);
         }
         .btn-secondary:hover {
-            box-shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.5);
+            background: rgba(99, 102, 241, 0.1);
             transform: translateY(-2px);
         }
 
+        /* Process step connector */
+        .process-connector {
+            position: relative;
+        }
+        .process-connector::after {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            width: 2px;
+            height: calc(100% - 4rem);
+            background: linear-gradient(to bottom, #6366f1, transparent);
+            transform: translateX(-50%);
+        }
+        @media (min-width: 768px) {
+            .process-connector::after {
+                top: 50%;
+                left: 100%;
+                width: calc(100% - 4rem);
+                height: 2px;
+                transform: translateY(-50%);
+            }
+        }
+        .process-step:last-child .process-connector::after {
+            display: none;
+        }
+
+        /* Navigation link underline */
         .nav-link {
             position: relative;
         }
@@ -183,56 +178,87 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
             transition: width 0.3s ease;
         }
         .nav-link:hover::after {
             width: 100%;
         }
 
-        .design-showcase {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+        /* Skill pill hover */
+        .skill-pill {
+            transition: var(--transition-smooth);
+        }
+        .skill-pill:hover {
+            transform: scale(1.05);
+            background: rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.4);
         }
 
-        .tool-icon {
-            transition: all 0.3s ease;
+        /* Animation classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
         }
-        .tool-icon:hover {
-            transform: translateY(-4px);
-            filter: drop-shadow(0 10px 20px rgba(139, 92, 246, 0.3));
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Case study page styles */
+        .case-study-section {
+            scroll-margin-top: 80px;
+        }
+
+        /* Image hover zoom */
+        .img-zoom {
+            overflow: hidden;
+        }
+        .img-zoom img {
+            transition: transform 0.5s ease;
+        }
+        .img-zoom:hover img {
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-violet-500 selection:text-white overflow-x-hidden">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-primary selection:text-white">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass border-b border-violet-500/10 transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 glass border-b border-white/5 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="text-2xl font-bold gradient-text font-serif italic hover:opacity-80 transition-opacity cursor-pointer">TB.</a>
+                <div class="flex-shrink-0">
+                    <a href="#top" class="text-2xl font-bold gradient-text font-serif italic tracking-tight">TB.</a>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="nav-link text-slate-300 hover:text-violet-400 transition-colors text-sm font-medium">About</a>
-                    <a href="#process" class="nav-link text-slate-300 hover:text-violet-400 transition-colors text-sm font-medium">Process</a>
-                    <a href="#work" class="nav-link text-slate-300 hover:text-violet-400 transition-colors text-sm font-medium">Work</a>
-                    <a href="#skills" class="nav-link text-slate-300 hover:text-violet-400 transition-colors text-sm font-medium">Skills</a>
-                    <a href="#contact" class="px-4 py-2 btn-primary rounded-full text-sm font-medium text-white">Let's Talk</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-slate-300 hover:text-white transition-colors text-sm font-medium">About</a>
+                    <a href="#process" class="nav-link text-slate-300 hover:text-white transition-colors text-sm font-medium">Process</a>
+                    <a href="#work" class="nav-link text-slate-300 hover:text-white transition-colors text-sm font-medium">Work</a>
+                    <a href="#skills" class="nav-link text-slate-300 hover:text-white transition-colors text-sm font-medium">Skills</a>
+                    <a href="#contact" class="px-5 py-2.5 btn-primary rounded-full text-sm font-medium text-white">Let's Talk</a>
                 </div>
-                <div class="md:hidden flex items-center">
-                    <button onclick="toggleMobileMenu()" class="text-slate-300 hover:text-violet-400 focus:outline-none transition-colors">
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-slate-300 hover:text-white focus:outline-none transition-colors p-2">
                         <i data-lucide="menu" class="h-6 w-6"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden glass border-t border-violet-500/10">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 text-slate-300 hover:text-violet-400 hover:bg-slate-800/50 rounded-md transition-colors">About</a>
-                <a href="#process" class="block px-3 py-2 text-slate-300 hover:text-violet-400 hover:bg-slate-800/50 rounded-md transition-colors">Process</a>
-                <a href="#work" class="block px-3 py-2 text-slate-300 hover:text-violet-400 hover:bg-slate-800/50 rounded-md transition-colors">Work</a>
-                <a href="#skills" class="block px-3 py-2 text-slate-300 hover:text-violet-400 hover:bg-slate-800/50 rounded-md transition-colors">Skills</a>
-                <a href="#contact" class="block px-3 py-2 text-violet-400 font-medium">Let's Talk</a>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/5 absolute w-full">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#about" onclick="closeMobileMenu()" class="block px-3 py-2 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-sm">About</a>
+                <a href="#process" onclick="closeMobileMenu()" class="block px-3 py-2 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-sm">Process</a>
+                <a href="#work" onclick="closeMobileMenu()" class="block px-3 py-2 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-sm">Work</a>
+                <a href="#skills" onclick="closeMobileMenu()" class="block px-3 py-2 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-sm">Skills</a>
+                <a href="#contact" onclick="closeMobileMenu()" class="block px-3 py-2 text-primary font-medium">Let's Talk</a>
             </div>
         </div>
     </nav>
@@ -240,696 +266,452 @@
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
         <!-- Background Elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute -top-40 -right-40 w-96 h-96 bg-violet-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style="animation-delay: 3s;"></div>
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full filter blur-3xl animate-float"></div>
+            <div class="absolute bottom-20 left-10 w-96 h-96 bg-secondary/20 rounded-full filter blur-3xl animate-float" style="animation-delay: 2s;"></div>
         </div>
-        
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="animate-fade-in">
-                <p class="text-violet-400 font-medium mb-4 tracking-wider uppercase text-sm">UI/UX & Visual Designer</p>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 font-serif">
-                    Designing <span class="gradient-text italic">Experiences</span><br>
-                    That Connect
-                </h1>
-                <div class="h-8 mb-8">
-                    <span id="typewriter" class="text-xl md:text-2xl text-slate-400 font-light"></span>
-                    <span class="cursor-blink text-violet-400">|</span>
+
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="space-y-8 reveal active">
+                <!-- Name -->
+                <div class="space-y-4">
+                    <p class="text-primary font-medium tracking-widest uppercase text-xs">Portfolio 2025</p>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
+                        Tushar <span class="gradient-text font-serif italic">Bhati</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-slate-400 font-light tracking-wide">
+                        UI/UX Designer <span class="text-primary">|</span> Problem Solver
+                    </p>
                 </div>
-                <p class="max-w-2xl mx-auto text-lg text-slate-400 mb-10 leading-relaxed">
-                    I blend <strong class="text-violet-400">creativity</strong> with <strong class="text-pink-400">strategy</strong> to craft digital experiences that resonate. 
-                    From brand identity to user interfaces, I design with purpose and pixel-perfect precision.
+
+                <!-- Introduction -->
+                <p class="max-w-2xl mx-auto text-lg text-slate-400 leading-relaxed text-balance">
+                    I craft intuitive digital experiences through research-driven design. 
+                    Transforming complex problems into elegant, user-centered solutions.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#work" class="px-8 py-4 btn-primary rounded-full font-medium text-white flex items-center gap-2">
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+                    <a href="#work" class="px-8 py-4 btn-primary rounded-full font-medium text-white flex items-center gap-2 text-sm">
                         View My Work <i data-lucide="arrow-down" class="h-4 w-4"></i>
                     </a>
-                    <a href="#contact" class="px-8 py-4 border border-violet-500/30 rounded-full font-medium hover:bg-violet-500/10 hover:border-violet-400 transition-all flex items-center gap-2 text-violet-400">
-                        Get in Touch <i data-lucide="message-circle" class="h-4 w-4"></i>
+                    <a href="#contact" class="px-8 py-4 btn-secondary rounded-full font-medium text-white flex items-center gap-2 text-sm">
+                        Contact Me <i data-lucide="mail" class="h-4 w-4"></i>
                     </a>
                 </div>
-                <div class="mt-12 flex justify-center gap-6">
-                    <a href="https://linktr.ee/TUSHARBHATI0644" target="_blank" class="p-3 rounded-full bg-slate-800/50 border border-violet-500/20 hover:border-violet-400 hover:bg-violet-500/10 transition-all hover:scale-110 text-slate-400 hover:text-violet-400">
-                        <i data-lucide="link" class="h-5 w-5"></i>
-                    </a>
-                    <a href="mailto:tusharbhati0644@gmail.com" class="p-3 rounded-full bg-slate-800/50 border border-violet-500/20 hover:border-violet-400 hover:bg-violet-500/10 transition-all hover:scale-110 text-slate-400 hover:text-violet-400">
-                        <i data-lucide="mail" class="h-5 w-5"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/tushar-bhati-345915250/" target="_blank" class="p-3 rounded-full bg-slate-800/50 border border-violet-500/20 hover:border-violet-400 hover:bg-violet-500/10 transition-all hover:scale-110 text-slate-400 hover:text-violet-400">
+
+                <!-- Social Links -->
+                <div class="flex justify-center gap-4 pt-8">
+                    <a href="https://www.linkedin.com/in/tushar-bhati-345915250/" target="_blank" class="p-3 rounded-full glass hover:bg-primary/20 transition-all hover:scale-110 text-slate-400 hover:text-white">
                         <i data-lucide="linkedin" class="h-5 w-5"></i>
                     </a>
-                    <a href="https://www.figma.com/@tusharbhati" target="_blank" class="p-3 rounded-full bg-slate-800/50 border border-violet-500/20 hover:border-violet-400 hover:bg-violet-500/10 transition-all hover:scale-110 text-slate-400 hover:text-violet-400">
+                    <a href="https://www.figma.com/@tusharbhati" target="_blank" class="p-3 rounded-full glass hover:bg-primary/20 transition-all hover:scale-110 text-slate-400 hover:text-white">
                         <i data-lucide="figma" class="h-5 w-5"></i>
+                    </a>
+                    <a href="mailto:tusharbhati0644@gmail.com" class="p-3 rounded-full glass hover:bg-primary/20 transition-all hover:scale-110 text-slate-400 hover:text-white">
+                        <i data-lucide="mail" class="h-5 w-5"></i>
                     </a>
                 </div>
             </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="h-6 w-6 text-slate-600"></i>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-24 bg-slate-900/30">
+    <section id="about" class="py-24 lg:py-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 font-serif">About <span class="gradient-text">Me</span></h2>
-                    <div class="space-y-4 text-slate-300 leading-relaxed">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <p class="text-primary font-medium mb-4 tracking-wider uppercase text-xs">About Me</p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        Designing with <span class="gradient-text font-serif italic">purpose</span> & precision
+                    </h2>
+                    <div class="space-y-4 text-slate-400 leading-relaxed">
                         <p>
-                            I'm a <strong class="text-violet-400">UI/UX and Visual Designer</strong> with a background in Computer Science, 
-                            bringing a unique blend of creative vision and technical understanding to every project.
+                            I'm a UI/UX Designer with a Computer Science background, bringing technical depth to creative problem-solving. My approach combines analytical thinking with empathetic design.
                         </p>
                         <p>
-                            My experience spans <strong class="text-pink-400">digital marketing design</strong> and <strong class="text-pink-400">user interface design</strong>, 
-                            allowing me to create cohesive brand experiences that look stunning and perform exceptionally. I believe design should 
-                            tell a story while solving real user problems.
+                            Currently interning at <strong class="text-white">Liberin Technologies</strong>, I've led design efforts for <strong class="text-white">Boliye AI</strong>, creating cohesive experiences across marketing and product interfaces.
                         </p>
                         <p>
-                            At <strong>Liberin Technologies</strong>, I worked as a <strong>Digital Marketing & Design Intern</strong>, 
-                            where I crafted marketing creatives for <strong>Boliye AI</strong> while contributing to product UI/UX. 
-                            This dual exposure taught me how design drives both user engagement and business growth.
+                            I believe great design starts with understanding people. Every pixel serves a purpose, every interaction tells a story.
                         </p>
                     </div>
-                    <div class="mt-8 grid grid-cols-3 gap-4">
-                        <div class="p-4 glass rounded-lg border border-violet-500/20 text-center">
-                            <h4 class="text-2xl font-bold text-violet-400 mb-1">1</h4>
-                            <p class="text-sm text-slate-400">Years Experience</p>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-white/10">
+                        <div>
+                            <p class="text-3xl font-bold text-white">1+</p>
+                            <p class="text-sm text-slate-500 mt-1">Years Experience</p>
                         </div>
-                        <div class="p-4 glass rounded-lg border border-pink-500/20 text-center">
-                            <h4 class="text-2xl font-bold text-pink-400 mb-1">10+</h4>
-                            <p class="text-sm text-slate-400">Design Projects</p>
+                        <div>
+                            <p class="text-3xl font-bold text-white">10+</p>
+                            <p class="text-sm text-slate-500 mt-1">Projects Completed</p>
                         </div>
-                        <div class="p-4 glass rounded-lg border border-cyan-500/20 text-center">
-                            <h4 class="text-2xl font-bold text-cyan-400 mb-1">100%</h4>
-                            <p class="text-sm text-slate-400">Brand Focus</p>
+                        <div>
+                            <p class="text-3xl font-bold text-white">5+</p>
+                            <p class="text-sm text-slate-500 mt-1">Case Studies</p>
                         </div>
                     </div>
                 </div>
-                <div class="order-1 md:order-2 relative">
-                    <div class="relative w-full aspect-square max-w-md mx-auto profile-container">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-violet-600 to-pink-600 rounded-2xl transform rotate-6 opacity-40"></div>
-                        <div class="absolute inset-0 bg-slate-800 rounded-2xl overflow-hidden border border-violet-500/20 glow-violet">
-                            <img src="https://github.com/tushar0644/Portfolio/blob/main/profile.jpeg?raw=true" 
-                                 alt="Tushar Bhati" 
-                                 class="w-full h-full object-cover profile-image"
-                                 onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full\'><i data-lucide=\'user\' class=\'h-32 w-32 text-slate-600\'></i></div>\'; lucide.createIcons();">
-                        </div>
+
+                <div class="relative reveal">
+                    <div class="aspect-square rounded-2xl overflow-hidden glass img-zoom">
+                        <img src="https://github.com/tushar0644/Portfolio/blob/main/profile.jpeg?raw=true" 
+                             alt="Tushar Bhati - UI/UX Designer" 
+                             class="w-full h-full object-cover"
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full bg-slate-800\'><i data-lucide=\'user\' class=\'h-24 w-24 text-slate-600\'></i></div>'; lucide.createIcons();">
                     </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -z-10 -bottom-4 -right-4 w-full h-full border-2 border-primary/30 rounded-2xl"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Design Process Section -->
-    <section id="process" class="py-24">
+    <!-- UX Process Section -->
+    <section id="process" class="py-24 lg:py-32 bg-slate-900/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">My Design <span class="gradient-text">Process</span></h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">From concept to creation, a strategic approach to design</p>
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <p class="text-primary font-medium mb-4 tracking-wider uppercase text-xs">My Approach</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">UX Design Process</h2>
+                <p class="text-slate-400 text-lg">A systematic approach to solving complex problems through design thinking</p>
             </div>
-            
-            <div class="grid md:grid-cols-5 gap-6">
-                <div class="process-step text-center group">
-                    <div class="w-16 h-16 bg-violet-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-violet-500/40 group-hover:scale-110 transition-transform">
-                        <i data-lucide="search" class="h-8 w-8 text-violet-400"></i>
+
+            <div class="grid md:grid-cols-5 gap-8">
+                <!-- Step 1: Research -->
+                <div class="process-step relative text-center reveal" style="transition-delay: 0ms;">
+                    <div class="process-connector">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center group hover:bg-primary/20 transition-colors">
+                            <i data-lucide="search" class="h-7 w-7 text-primary"></i>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-white mb-2">Discover</h3>
-                    <p class="text-sm text-slate-400">Research, brand analysis, and understanding user needs</p>
+                    <h3 class="text-lg font-semibold text-white mb-2">Research</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">User interviews, competitive analysis, and understanding the problem space</p>
+                    <span class="absolute -top-2 left-1/2 transform -translate-x-1/2 text-xs text-primary font-medium">01</span>
                 </div>
-                
-                <div class="process-step text-center group">
-                    <div class="w-16 h-16 bg-violet-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-violet-500/40 group-hover:scale-110 transition-transform">
-                        <i data-lucide="lightbulb" class="h-8 w-8 text-violet-400"></i>
+
+                <!-- Step 2: Define -->
+                <div class="process-step relative text-center reveal" style="transition-delay: 100ms;">
+                    <div class="process-connector">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center group hover:bg-primary/20 transition-colors">
+                            <i data-lucide="target" class="h-7 w-7 text-primary"></i>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-white mb-2">Define</h3>
-                    <p class="text-sm text-slate-400">Brand strategy, user personas, and creative direction</p>
+                    <h3 class="text-lg font-semibold text-white mb-2">Define</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Synthesizing insights, creating personas, and defining user journeys</p>
+                    <span class="absolute -top-2 left-1/2 transform -translate-x-1/2 text-xs text-primary font-medium">02</span>
                 </div>
-                
-                <div class="process-step text-center group">
-                    <div class="w-16 h-16 bg-pink-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-pink-500/40 group-hover:scale-110 transition-transform">
-                        <i data-lucide="pencil" class="h-8 w-8 text-pink-400"></i>
+
+                <!-- Step 3: Ideate -->
+                <div class="process-step relative text-center reveal" style="transition-delay: 200ms;">
+                    <div class="process-connector">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary/10 border border-secondary/30 flex items-center justify-center group hover:bg-secondary/20 transition-colors">
+                            <i data-lucide="lightbulb" class="h-7 w-7 text-secondary"></i>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-white mb-2">Design</h3>
-                    <p class="text-sm text-slate-400">Visual design, wireframes, and brand assets</p>
+                    <h3 class="text-lg font-semibold text-white mb-2">Ideate</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Brainstorming solutions, sketching concepts, and exploring possibilities</p>
+                    <span class="absolute -top-2 left-1/2 transform -translate-x-1/2 text-xs text-secondary font-medium">03</span>
                 </div>
-                
-                <div class="process-step text-center group">
-                    <div class="w-16 h-16 bg-pink-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-pink-500/40 group-hover:scale-110 transition-transform">
-                        <i data-lucide="play-circle" class="h-8 w-8 text-pink-400"></i>
+
+                <!-- Step 4: Prototype -->
+                <div class="process-step relative text-center reveal" style="transition-delay: 300ms;">
+                    <div class="process-connector">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary/10 border border-secondary/30 flex items-center justify-center group hover:bg-secondary/20 transition-colors">
+                            <i data-lucide="layers" class="h-7 w-7 text-secondary"></i>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-white mb-2">Prototype</h3>
-                    <p class="text-sm text-slate-400">Interactive mockups and marketing materials</p>
+                    <h3 class="text-lg font-semibold text-white mb-2">Prototype</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Building wireframes, high-fidelity designs, and interactive prototypes</p>
+                    <span class="absolute -top-2 left-1/2 transform -translate-x-1/2 text-xs text-secondary font-medium">04</span>
                 </div>
-                
-                <div class="process-step text-center group">
-                    <div class="w-16 h-16 bg-cyan-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-cyan-500/40 group-hover:scale-110 transition-transform">
-                        <i data-lucide="rocket" class="h-8 w-8 text-cyan-400"></i>
+
+                <!-- Step 5: Test -->
+                <div class="process-step relative text-center reveal" style="transition-delay: 400ms;">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-accent/10 border border-accent/30 flex items-center justify-center group hover:bg-accent/20 transition-colors">
+                        <i data-lucide="check-circle" class="h-7 w-7 text-accent"></i>
                     </div>
-                    <h3 class="font-bold text-white mb-2">Deliver</h3>
-                    <p class="text-sm text-slate-400">Asset handoff, brand guidelines, and launch support</p>
+                    <h3 class="text-lg font-semibold text-white mb-2">Test</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Usability testing, gathering feedback, and iterating on solutions</p>
+                    <span class="absolute -top-2 left-1/2 transform -translate-x-1/2 text-xs text-accent font-medium">05</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Work Section -->
-    <section id="work" class="py-24 bg-slate-900/30">
+    <!-- Work/Projects Section -->
+    <section id="work" class="py-24 lg:py-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Featured <span class="gradient-text">Work</span></h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Selected projects in UI/UX and visual design</p>
-            </div>
-
-           <!-- Project 1: Boliye AI -->
-<div class="mb-16 project-card glass rounded-3xl overflow-hidden border border-violet-500/10">
-    <div class="design-showcase p-8 md:p-12 border-b border-violet-500/10">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
-            <div>
-                <span class="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-xs font-medium uppercase tracking-wider border border-violet-500/30">Brand & Product Design</span>
-                <h3 class="text-3xl md:text-4xl font-bold mt-4 mb-2 font-serif text-white">Boliye AI</h3>
-                <p class="text-slate-400">AI communication platform — Visual Identity & UI/UX Design</p>
-            </div>
-            <div class="flex gap-3">
-                <a href="https://www.figma.com/design/tQSjPDtldaGWdtCcM9hFok/Untitled?node-id=0-1&t=ydAM379PUvo8GlFd-1" target="_blank" class="px-6 py-3 btn-primary rounded-full text-sm font-medium text-white flex items-center gap-2">
-                    View Case Study <i data-lucide="external-link" class="h-4 w-4"></i>
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 reveal">
+                <div class="max-w-2xl">
+                    <p class="text-primary font-medium mb-4 tracking-wider uppercase text-xs">Selected Work</p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Case Studies</h2>
+                    <p class="text-slate-400 text-lg">Deep dives into my design process and problem-solving approach</p>
+                </div>
+                <a href="#" class="mt-6 md:mt-0 text-primary hover:text-white transition-colors flex items-center gap-2 text-sm font-medium">
+                    View All Projects <i data-lucide="arrow-right" class="h-4 w-4"></i>
                 </a>
             </div>
-        </div>
-    </div>
-    
-    <div class="p-8 md:p-12 grid md:grid-cols-2 gap-12">
-        <div>
-            <h4 class="text-xl font-bold mb-4 text-white">Project Overview</h4>
-            <p class="text-slate-300 leading-relaxed mb-6">
-                As part of my role at Liberin Technologies, I led the visual design efforts for Boliye AI, 
-                an AI-powered communication platform. My work spanned from marketing creatives to product interface design, 
-                ensuring a cohesive brand experience across all touchpoints.
-            </p>
-            
-            <h4 class="text-xl font-bold mb-4 text-white">Key Contributions</h4>
-            <ul class="space-y-3 text-slate-300">
-                <li class="flex gap-3">
-                    <i data-lucide="check-circle" class="h-5 w-5 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                    <span><strong>Brand Identity:</strong> Designed marketing creatives, banners, and social media graphics maintaining strict brand consistency</span>
-                </li>
-                <li class="flex gap-3">
-                    <i data-lucide="check-circle" class="h-5 w-5 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                    <span><strong>UI/UX Design:</strong> Created low-fidelity wireframes and interactive prototypes to define user flows and validate design concepts</span>
-                </li>
-                <li class="flex gap-3">
-                    <i data-lucide="check-circle" class="h-5 w-5 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                    <span><strong>Developer Collaboration:</strong> Translated design concepts into clear specifications, ensuring seamless implementation</span>
-                </li>
-                <li class="flex gap-3">
-                    <i data-lucide="check-circle" class="h-5 w-5 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                    <span><strong>Design Systems:</strong> Established visual guidelines and component libraries for scalable design</span>
-                </li>
-            </ul>
-            
-            <div class="mt-6 flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded-full text-xs border border-violet-500/20">Figma</span>
-                <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded-full text-xs border border-violet-500/20">Brand Design</span>
-                <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded-full text-xs border border-violet-500/20">UI/UX</span>
-                <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded-full text-xs border border-violet-500/20">Prototyping</span>
-                <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded-full text-xs border border-violet-500/20">Marketing Design</span>
-            </div>
-        </div>
-        <div class="bg-gradient-to-br from-violet-900/20 to-pink-900/20 p-6 rounded-2xl border border-violet-500/20 glow-violet flex items-center justify-center overflow-hidden">
-            <img src="https://github.com/tushar0644/Portfolio/blob/main/Desktop%20-%201.png?raw=true" 
-                 alt="Boliye AI Design System" 
-                 class="w-full h-auto rounded-lg shadow-2xl object-cover hover:scale-105 transition-transform duration-500">
-        </div>
-    </div>
-</div>
 
-            <!-- Project 2: Movie Ticket App -->
-            <div class="mb-16 project-card glass rounded-3xl overflow-hidden border border-pink-500/10">
-                <div class="p-8 md:p-12 border-b border-pink-500/10 bg-gradient-to-r from-pink-900/10 to-violet-900/10">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                        <div>
-                            <span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs font-medium uppercase tracking-wider border border-pink-500/30">Mobile App Design</span>
-                            <h3 class="text-3xl md:text-4xl font-bold mt-4 mb-2 font-serif text-white">Movie Ticket Booking</h3>
-                            <p class="text-slate-400">Complete mobile app design from concept to interactive prototype</p>
+            <!-- Project Grid -->
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Project 1: Boliye AI -->
+                <article class="project-card glass rounded-2xl overflow-hidden group reveal">
+                    <div class="aspect-video bg-gradient-to-br from-violet-900/20 to-pink-900/20 relative overflow-hidden">
+                        <img src="https://github.com/tushar0644/Portfolio/blob/main/Desktop%20-%201.png?raw=true" 
+                             alt="Boliye AI Case Study" 
+                             class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="px-3 py-1 bg-primary/20 backdrop-blur-sm text-primary text-xs font-medium rounded-full border border-primary/30">Product Design</span>
                         </div>
-                        <a href="https://www.figma.com/proto/sdzdIXERlT8WYAuuMa5i4E/Untitled?page-id=0%3A1&node-id=1-65&p=f&viewport=84%2C45%2C0.21&t=TOvUOGlYZus4F1jE-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A65" 
-                           target="_blank" 
-                           class="px-6 py-3 btn-secondary rounded-full text-sm font-medium text-white flex items-center gap-2">
-                            View Prototype <i data-lucide="external-link" class="h-4 w-4"></i>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">Boliye AI</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                            Redesigning an AI communication platform to improve user engagement and streamline conversation flows for better accessibility.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-white/5 text-slate-400 text-xs rounded border border-white/10">User Research</span>
+                            <span class="px-2 py-1 bg-white/5 text-slate-400 text-xs rounded border border-white/10">Figma</span>
+                            <span class="px-2 py-1 bg-white/5 text-slate-400 text-xs rounded border border-white/10">Prototyping</span>
+                            <span class="px-2 py-1 bg-white/5 text-slate-400 text-xs rounded border border-white/10">Design System</span>
+                        </div>
+                        <a href="#case-study-boliye" onclick="showCaseStudy('boliye')" class="inline-flex items-center gap-2 text-primary hover:text-white text-sm font-medium transition-colors">
+                            View Case Study <i data-lucide="arrow-right" class="h-4 w-4"></i>
                         </a>
                     </div>
-                </div>
-                
-                <div class="p-8 md:p-12">
-                    <div class="grid md:grid-cols-3 gap-8 mb-8">
-                        <div class="glass p-6 rounded-xl border border-pink-500/20">
-                            <i data-lucide="smartphone" class="h-8 w-8 text-pink-400 mb-3"></i>
-                            <h4 class="font-bold text-white mb-2">Platform</h4>
-                            <p class="text-sm text-slate-400">iOS & Android Mobile Application</p>
-                        </div>
-                        <div class="glass p-6 rounded-xl border border-pink-500/20">
-                            <i data-lucide="clock" class="h-8 w-8 text-pink-400 mb-3"></i>
-                            <h4 class="font-bold text-white mb-2">Duration</h4>
-                            <p class="text-sm text-slate-400">4 weeks from concept to prototype</p>
-                        </div>
-                        <div class="glass p-6 rounded-xl border border-pink-500/20">
-                            <i data-lucide="user" class="h-8 w-8 text-pink-400 mb-3"></i>
-                            <h4 class="font-bold text-white mb-2">Role</h4>
-                            <p class="text-sm text-slate-400">Solo UI/UX Designer</p>
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h4 class="text-xl font-bold mb-4 text-white">Design Highlights</h4>
-                            <div class="space-y-4">
-                                <div class="flex gap-4">
-                                    <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-pink-500/30">
-                                        <i data-lucide="layout" class="h-5 w-5 text-pink-400"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="font-semibold text-white mb-1">Streamlined Booking Flow</h5>
-                                        <p class="text-sm text-slate-400">Intuitive 3-step process from search to ticket generation</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4">
-                                    <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-pink-500/30">
-                                        <i data-lucide="palette" class="h-5 w-5 text-pink-400"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="font-semibold text-white mb-1">Visual Design System</h5>
-                                        <p class="text-sm text-slate-400">Dark mode interface with vibrant accents for movie content</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4">
-                                    <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0 border border-pink-500/30">
-                                        <i data-lucide="mouse-pointer" class="h-5 w-5 text-pink-400"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="font-semibold text-white mb-1">Interactive Prototype</h5>
-                                        <p class="text-sm text-slate-400">Fully clickable prototype with micro-interactions and transitions</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-gradient-to-br from-pink-900/20 to-violet-900/20 p-6 rounded-2xl border border-pink-500/20 flex items-center justify-center">
-                            <img src="https://raw.githubusercontent.com/tushar0644/Portfolio/d9cea2acaf0a5a4d2acf2ffcd8ead4395ec2069a/movie-app.svg" 
-                                 alt="Movie App Design" 
-                                 class="w-full max-h-64 rounded-lg shadow-2xl object-contain hover:scale-105 transition-transform duration-500"
-                                 onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-64 text-slate-500\'><div class=\'text-center\'><i data-lucide=\'smartphone\' class=\'h-16 w-16 text-pink-500/30 mx-auto mb-4\'></i><p>Movie App Screens</p></div></div>'; lucide.createIcons();">
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </article>
 
-<!-- Project 3: PM Internship Project -->
-<div class="project-card glass rounded-3xl overflow-hidden border border-cyan-500/10">
-    <div class="p-8 md:p-12 border-b border-cyan-500/10 bg-gradient-to-r from-cyan-900/10 to-violet-900/10">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div>
-                <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-medium uppercase tracking-wider border border-cyan-500/30">Product Management</span>
-                <h3 class="text-3xl md:text-4xl font-bold mt-4 mb-2 font-serif text-white">PM Internship Project</h3>
-                <p class="text-slate-400">End-to-end product strategy, user research and feature prioritization</p>
-            </div>
-            <a href="https://www.figma.com/design/iAyqdr4LrpP6xbn23yD2HS/PM-internship-project?node-id=120-1335&t=qnKfnEH77CVzG0I9-1" 
-               target="_blank" 
-               class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 rounded-full text-sm font-medium text-white flex items-center gap-2 transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40">
-                View Case Study <i data-lucide="external-link" class="h-4 w-4"></i>
-            </a>
-        </div>
-    </div>
-    
-    <div class="p-8 md:p-12 grid md:grid-cols-2 gap-12">
-        <div class="bg-gradient-to-br from-cyan-900/20 to-blue-900/20 p-6 rounded-2xl border border-cyan-500/20 order-2 md:order-1 flex items-center justify-center">
-            <img src="https://github.com/tushar0644/Portfolio/blob/main/pm%20internship.png?raw=true" 
-                 alt="PM Internship Project" 
-                 class="w-full max-h-64 rounded-lg shadow-2xl object-contain hover:scale-105 transition-transform duration-500">
-        </div>
-        <div class="order-1 md:order-2">
-            <h4 class="text-xl font-bold mb-4 text-white">Project Overview</h4>
-            <p class="text-slate-300 leading-relaxed mb-6">
-                A comprehensive product management internship project focusing on strategic planning, 
-                user research, and data-driven decision making. Developed product roadmap, conducted 
-                competitive analysis, and prioritized features based on user needs and business goals.
-            </p>
-            
-            <div class="space-y-4">
-                <div class="flex gap-3">
-                    <i data-lucide="users" class="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                    <div>
-                        <h5 class="font-semibold text-white">User Research and Analysis</h5>
-                        <p class="text-sm text-slate-400">Conducted user interviews, surveys, and created detailed personas to understand pain points</p>
+                <!-- Project 2: Movie Ticket App -->
+                <article class="project-card glass rounded-2xl overflow-hidden group reveal" style="transition-delay: 100ms;">
+                    <div class="aspect-video bg-gradient-to-br from-pink-900/20 to-violet-900/20 relative overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/tushar0644/Portfolio/d9cea2acaf0a5a4d2acf2ffcd8ead4395ec2069a/movie-app.svg" 
+                             alt="Movie Ticket App Case Study" 
+                             class="w-full h-full object-contain p-8 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="px-3 py-1 bg-secondary/20 backdrop-blur-sm text-secondary text-xs font-medium rounded-full border border-secondary/30">Mobile App</span>
+                        </div>
                     </div>
-                </div>
-                <div class="flex gap-3">
-                    <i data-lucide="target" class="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                    <div>
-                        <h5 class="font-semibold text-white">Product Strategy</h5>
-                        <p class="text-sm text-slate-400">Defined product vision, mission, and objectives with key results aligned with business goals</p>
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-secondary transition-colors">CineBook</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                            Designing a seamless movie ticket booking experience with focus on reducing booking time and enhancing discovery.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-white/5 text-slate-400 text-xs rounded border border-white/10">UI Design</span>
+                            <span class="px-2 py-1 bg-white/5 text-slate-400 text-xs rounded border border-white/10">Wireframing</span>
+                            <span class="px-2 py-1 bg-white/5 text-slate-400 text-xs rounded border border-white/10">Interaction Design</span>
+                        </div>
+                        <a href="#case-study-movie" onclick="showCaseStudy('movie')" class="inline-flex items-center gap-2 text-secondary hover:text-white text-sm font-medium transition-colors">
+                            View Case Study <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                        </a>
                     </div>
-                </div>
-                <div class="flex gap-3">
-                    <i data-lucide="git-branch" class="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                    <div>
-                        <h5 class="font-semibold text-white">Roadmap and Prioritization</h5>
-                        <p class="text-sm text-slate-400">Created detailed product roadmap using prioritization frameworks to maximize impact</p>
-                    </div>
-                </div>
-                <div class="flex gap-3">
-                    <i data-lucide="bar-chart-3" class="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5"></i>
-                    <div>
-                        <h5 class="font-semibold text-white">Data-Driven Decisions</h5>
-                        <p class="text-sm text-slate-400">Analyzed metrics, defined key performance indicators, and created dashboards for tracking product success</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-6 flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs border border-cyan-500/20">Product Strategy</span>
-                <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs border border-cyan-500/20">User Research</span>
-                <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs border border-cyan-500/20">Roadmapping</span>
-                <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs border border-cyan-500/20">Data Analysis</span>
-                <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs border border-cyan-500/20">Agile</span>
-            </div>
-        </div>
-    </div>
-</div>
-    <!-- Skills & Tools Section -->
-    <section id="skills" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Skills & <span class="gradient-text">Tools</span></h2>
-                <p class="text-slate-400">My creative toolkit and capabilities</p>
-            </div>
+                </article>
 
-            <div class="grid md:grid-cols-2 gap-12 mb-12">
-                <!-- Design Skills -->
-                <div class="glass p-8 rounded-2xl border border-violet-500/10">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-white">
-                        <i data-lucide="pen-tool" class="h-5 w-5 text-violet-400"></i>
-                        Core Skills
-                    </h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-sm font-medium text-slate-300">UI/UX Design</span>
-                                <span class="text-sm text-violet-400">95%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 rounded-full h-2">
-                                <div class="bg-gradient-to-r from-violet-500 to-pink-500 h-2 rounded-full" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-sm font-medium text-slate-300">Visual & Brand Design</span>
-                                <span class="text-sm text-violet-400">90%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 rounded-full h-2">
-                                <div class="bg-gradient-to-r from-violet-500 to-pink-500 h-2 rounded-full" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-sm font-medium text-slate-300">Prototyping & Wireframing</span>
-                                <span class="text-sm text-violet-400">95%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 rounded-full h-2">
-                                <div class="bg-gradient-to-r from-violet-500 to-pink-500 h-2 rounded-full" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-sm font-medium text-slate-300">Marketing Design</span>
-                                <span class="text-sm text-violet-400">85%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 rounded-full h-2">
-                                <div class="bg-gradient-to-r from-violet-500 to-pink-500 h-2 rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-sm font-medium text-slate-300">Design Systems</span>
-                                <span class="text-sm text-violet-400">80%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 rounded-full h-2">
-                                <div class="bg-gradient-to-r from-violet-500 to-pink-500 h-2 rounded-full" style="width: 80%"></div>
-                            </div>
+                <!-- Project 3: PM Internship -->
+                <article class="project-card glass rounded-2xl overflow-hidden group reveal" style="transition-delay: 200ms;">
+                    <div class="aspect-video bg-gradient-to-br from-cyan-900/20 to-blue-900/20 relative overflow-hidden">
+                        <img src="https://github.com/tushar0644/Portfolio/blob/main/pm%20internship.png?raw=true" 
+                             alt="PM Internship Project" 
+                             class="w-full h-full object-contain p-8 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="px-3 py-1 bg-accent/20 backdrop-blur-sm text-accent text-xs font-medium rounded-full border border-accent/30">Product Strategy</span>
                         </div>
                     </div>
-                </div>
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors">Internship Finder</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                            End-to-end product management project focusing on connecting students with relevant internship opportunities.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-white/5 text-slate-400 text-xs rounded border border-white/10">Product Strategy</span>
+                            <span class="px-2 py-1 bg-white/5 text-slate-400 text-xs rounded border border-white/10">User Research</span>
+                            <span class="px-2 py-1 bg-white/5 text-slate-400 text-xs rounded border border-white/10">Roadmapping</span>
+                        </div>
+                        <a href="#case-study-pm" onclick="showCaseStudy('pm')" class="inline-flex items-center gap-2 text-accent hover:text-white text-sm font-medium transition-colors">
+                            View Case Study <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                        </a>
+                    </div>
+                </article>
 
-                <!-- Tools -->
-                <div class="glass p-8 rounded-2xl border border-pink-500/10">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-white">
-                        <i data-lucide="wrench" class="h-5 w-5 text-pink-400"></i>
-                        Design Tools
-                    </h3>
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="tool-icon flex flex-col items-center p-4 glass rounded-xl border border-violet-500/20">
-                            <i data-lucide="figma" class="h-8 w-8 text-violet-400 mb-2"></i>
-                            <span class="text-xs text-slate-300">Figma</span>
-                        </div>
-                        <div class="tool-icon flex flex-col items-center p-4 glass rounded-xl border border-violet-500/20">
-                            <i data-lucide="pen-tool" class="h-8 w-8 text-violet-400 mb-2"></i>
-                            <span class="text-xs text-slate-300">Adobe XD</span>
-                        </div>
-                        <div class="tool-icon flex flex-col items-center p-4 glass rounded-xl border border-violet-500/20">
-                            <i data-lucide="image" class="h-8 w-8 text-violet-400 mb-2"></i>
-                            <span class="text-xs text-slate-300">Photoshop</span>
-                        </div>
-                        <div class="tool-icon flex flex-col items-center p-4 glass rounded-xl border border-pink-500/20">
-                            <i data-lucide="type" class="h-8 w-8 text-pink-400 mb-2"></i>
-                            <span class="text-xs text-slate-300">Illustrator</span>
-                        </div>
-                        <div class="tool-icon flex flex-col items-center p-4 glass rounded-xl border border-pink-500/20">
-                            <i data-lucide="video" class="h-8 w-8 text-pink-400 mb-2"></i>
-                            <span class="text-xs text-slate-300">Premiere</span>
-                        </div>
-                        <div class="tool-icon flex flex-col items-center p-4 glass rounded-xl border border-pink-500/20">
-                            <i data-lucide="smartphone" class="h-8 w-8 text-pink-400 mb-2"></i>
-                            <span class="text-xs text-slate-300">After Effects</span>
+                <!-- Project 4: Placeholder for future -->
+                <article class="project-card glass rounded-2xl overflow-hidden group reveal border-dashed border-2 border-white/10" style="transition-delay: 300ms;">
+                    <div class="aspect-video flex items-center justify-center bg-slate-900/50">
+                        <div class="text-center p-8">
+                            <i data-lucide="plus" class="h-12 w-12 text-slate-600 mx-auto mb-4"></i>
+                            <p class="text-slate-500 text-sm">More projects coming soon</p>
                         </div>
                     </div>
-                    
-                    <div class="mt-6 pt-6 border-t border-slate-700">
-                        <h4 class="text-sm font-bold text-white mb-3">Also Familiar With</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">HTML/CSS</span>
-                            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Tailwind</span>
-                            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Canva</span>
-                            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Notion</span>
-                            <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Jira</span>
-                        </div>
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-xl font-bold text-slate-500 mb-2">Coming Soon</h3>
+                        <p class="text-slate-600 text-sm">New case studies in progress</p>
                     </div>
-                </div>
-            </div>
-
-            <!-- Skill Tags -->
-            <div class="flex flex-wrap justify-center gap-3">
-                <span class="skill-pill px-4 py-2 rounded-full text-sm text-violet-300">UI Design</span>
-                <span class="skill-pill px-4 py-2 rounded-full text-sm text-violet-300">UX Research</span>
-                <span class="skill-pill px-4 py-2 rounded-full text-sm text-violet-300">Wireframing</span>
-                <span class="skill-pill px-4 py-2 rounded-full text-sm text-violet-300">Prototyping</span>
-                <span class="skill-pill px-4 py-2 rounded-full text-sm text-pink-300">Brand Identity</span>
-                <span class="skill-pill px-4 py-2 rounded-full text-sm text-pink-300">Marketing Design</span>
-                <span class="skill-pill px-4 py-2 rounded-full text-sm text-pink-300">Social Media Graphics</span>
-                <span class="skill-pill px-4 py-2 rounded-full text-sm text-cyan-300">Design Systems</span>
-                <span class="skill-pill px-4 py-2 rounded-full text-sm text-cyan-300">User Flows</span>
-                <span class="skill-pill px-4 py-2 rounded-full text-sm text-cyan-300">Visual Design</span>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-24 bg-slate-900/30">
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 lg:py-32 bg-slate-900/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Work <span class="gradient-text">Experience</span></h2>
-                <p class="text-slate-400">My professional journey in design and marketing</p>
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <p class="text-primary font-medium mb-4 tracking-wider uppercase text-xs">Expertise</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">UX Design Skills</h2>
+                <p class="text-slate-400 text-lg">Tools and methodologies I use to create exceptional user experiences</p>
             </div>
-            <div class="max-w-4xl mx-auto">
-                <div class="relative pl-8 md:pl-0">
-                    <div class="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-violet-500 to-pink-500"></div>
-                    <div class="md:grid md:grid-cols-12 gap-8 items-start">
-                        <div class="md:col-span-3 md:text-right">
-                            <span class="text-violet-400 font-medium text-sm">Nov 2025 – Feb 2026</span>
-                            <p class="text-slate-500 text-sm mt-1">Noida, India</p>
-                        </div>
-                        <div class="md:col-span-9 glass p-6 rounded-xl border-l-4 border-violet-500 ml-4 md:ml-0">
-                            <h3 class="text-xl font-bold text-white mb-2">Digital Marketing & Design Intern</h3>
-                            <p class="text-violet-400 font-medium mb-3">Liberin Technologies Pvt. Ltd.</p>
-                            <ul class="space-y-3 text-slate-300 text-sm">
-                                <li class="flex gap-2">
-                                    <i data-lucide="chevron-right" class="h-4 w-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                                    <span>Designed comprehensive marketing creatives, banners, and social media graphics for <strong>Boliye AI</strong>, maintaining strict brand consistency across all digital channels</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <i data-lucide="chevron-right" class="h-4 w-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                                    <span>Contributed to product UI/UX by creating low-fidelity wireframes and interactive prototypes, defining user flows and identifying usability improvements</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <i data-lucide="chevron-right" class="h-4 w-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                                    <span>Collaborated with cross-functional teams to translate marketing requirements into visually compelling designs that drove user engagement</span>
-                                </li>
-                                <li class="flex gap-2">
-                                    <i data-lucide="chevron-right" class="h-4 w-4 text-violet-400 flex-shrink-0 mt-0.5"></i>
-                                    <span>Developed design assets and guidelines that ensured seamless handoff to development teams, reducing iteration cycles</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Education Section -->
-    <section class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Education & <span class="gradient-text">Certifications</span></h2>
-            </div>
-            <div class="max-w-3xl mx-auto space-y-6">
-                <div class="glass p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-violet-500/30 transition-all border border-violet-500/10">
-                    <div>
-                        <h3 class="text-lg font-bold text-white">B.Tech in Computer Science (IoT)</h3>
-                        <p class="text-violet-400 font-medium">ABES Institute of Technology</p>
-                        <p class="text-slate-400 text-sm mt-1">Technical foundation with design thinking approach</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill 1 -->
+                <div class="skill-pill glass p-6 rounded-xl border border-white/10 reveal">
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                        <i data-lucide="users" class="h-6 w-6 text-primary"></i>
                     </div>
-                    <span class="px-4 py-2 bg-slate-800 rounded-full text-sm text-slate-300 font-medium border border-violet-500/20">2022 – 2026</span>
+                    <h3 class="text-lg font-semibold text-white mb-2">User Research</h3>
+                    <p class="text-sm text-slate-400">Interviews, surveys, usability testing, and data analysis to understand user needs</p>
                 </div>
-                
-                <div class="glass p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-pink-500/30 transition-all border border-pink-500/10">
-                    <div>
-                        <h3 class="text-lg font-bold text-white">UI/UX Mentor Certificate</h3>
-                        <p class="text-pink-400 font-medium">ABES Institute of Technology</p>
-                        <p class="text-slate-400 text-sm mt-1">Recognized for mentoring peers in design principles</p>
+
+                <!-- Skill 2 -->
+                <div class="skill-pill glass p-6 rounded-xl border border-white/10 reveal" style="transition-delay: 50ms;">
+                    <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
+                        <i data-lucide="layout" class="h-6 w-6 text-secondary"></i>
                     </div>
-                    <span class="px-4 py-2 bg-slate-800 rounded-full text-sm text-slate-300 font-medium border border-pink-500/20">Nov 2022</span>
+                    <h3 class="text-lg font-semibold text-white mb-2">Wireframing</h3>
+                    <p class="text-sm text-slate-400">Low to high-fidelity wireframes that communicate structure and flow effectively</p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="skill-pill glass p-6 rounded-xl border border-white/10 reveal" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                        <i data-lucide="mouse-pointer-click" class="h-6 w-6 text-accent"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Prototyping</h3>
+                    <p class="text-sm text-slate-400">Interactive prototypes for testing concepts and validating design decisions</p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="skill-pill glass p-6 rounded-xl border border-white/10 reveal" style="transition-delay: 150ms;">
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                        <i data-lucide="test-tube" class="h-6 w-6 text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Usability Testing</h3>
+                    <p class="text-sm text-slate-400">Planning and conducting tests to identify pain points and improvement areas</p>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="skill-pill glass p-6 rounded-xl border border-white/10 reveal" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
+                        <i data-lucide="figma" class="h-6 w-6 text-secondary"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Figma</h3>
+                    <p class="text-sm text-slate-400">Advanced proficiency in design systems, auto-layout, and component libraries</p>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="skill-pill glass p-6 rounded-xl border border-white/10 reveal" style="transition-delay: 250ms;">
+                    <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                        <i data-lucide="sparkles" class="h-6 w-6 text-accent"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Interaction Design</h3>
+                    <p class="text-sm text-slate-400">Micro-interactions, animations, and transitions that enhance user experience</p>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="mt-16 pt-16 border-t border-white/10 reveal">
+                <p class="text-center text-slate-500 text-sm mb-8 uppercase tracking-wider">Tools I Use</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="px-4 py-2 glass rounded-full text-sm text-slate-300 border border-white/10">Figma</span>
+                    <span class="px-4 py-2 glass rounded-full text-sm text-slate-300 border border-white/10">Adobe XD</span>
+                    <span class="px-4 py-2 glass rounded-full text-sm text-slate-300 border border-white/10">Miro</span>
+                    <span class="px-4 py-2 glass rounded-full text-sm text-slate-300 border border-white/10">Notion</span>
+                    <span class="px-4 py-2 glass rounded-full text-sm text-slate-300 border border-white/10">Jira</span>
+                    <span class="px-4 py-2 glass rounded-full text-sm text-slate-300 border border-white/10">Maze</span>
+                    <span class="px-4 py-2 glass rounded-full text-sm text-slate-300 border border-white/10">Hotjar</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-slate-900/30">
+    <section id="contact" class="py-24 lg:py-32">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Let's Create <span class="gradient-text">Together</span></h2>
-            <p class="text-slate-400 mb-12">Open to design internships, freelance projects, and creative collaborations</p>
+            <div class="reveal">
+                <p class="text-primary font-medium mb-4 tracking-wider uppercase text-xs">Get In Touch</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Let's work together</h2>
+                <p class="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">
+                    I'm currently open for UI/UX Design internships and freelance projects. 
+                    Let's create something meaningful together.
+                </p>
 
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <a href="mailto:tusharbhati0644@gmail.com" class="glass p-6 rounded-xl hover:border-violet-500/50 transition-all group border border-violet-500/10">
-                    <i data-lucide="mail" class="h-8 w-8 text-violet-400 mx-auto mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="font-medium text-white mb-1">Email</h3>
-                    <p class="text-sm text-slate-400">tusharbhati0644@gmail.com</p>
-                </a>
-                <a href="tel:+919560750644" class="glass p-6 rounded-xl hover:border-pink-500/50 transition-all group border border-pink-500/10">
-                    <i data-lucide="phone" class="h-8 w-8 text-pink-400 mx-auto mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="font-medium text-white mb-1">Phone</h3>
-                    <p class="text-sm text-slate-400">+91 9560750644</p>
-                </a>
-                <a href="https://www.linkedin.com/in/tushar-bhati-345915250/" target="_blank" class="glass p-6 rounded-xl hover:border-cyan-500/50 transition-all group border border-cyan-500/10">
-                    <i data-lucide="linkedin" class="h-8 w-8 text-cyan-400 mx-auto mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h3 class="font-medium text-white mb-1">LinkedIn</h3>
-                    <p class="text-sm text-slate-400">Connect professionally</p>
-                </a>
-            </div>
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <a href="mailto:tusharbhati0644@gmail.com" class="glass p-6 rounded-xl hover:border-primary/50 transition-all group">
+                        <i data-lucide="mail" class="h-8 w-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-medium text-white mb-1">Email</h3>
+                        <p class="text-sm text-slate-400">tusharbhati0644@gmail.com</p>
+                    </a>
+                    <a href="tel:+919560750644" class="glass p-6 rounded-xl hover:border-secondary/50 transition-all group">
+                        <i data-lucide="phone" class="h-8 w-8 text-secondary mx-auto mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-medium text-white mb-1">Phone</h3>
+                        <p class="text-sm text-slate-400">+91 9560750644</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/tushar-bhati-345915250/" target="_blank" class="glass p-6 rounded-xl hover:border-accent/50 transition-all group">
+                        <i data-lucide="linkedin" class="h-8 w-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-medium text-white mb-1">LinkedIn</h3>
+                        <p class="text-sm text-slate-400">Connect with me</p>
+                    </a>
+                </div>
 
-            <div class="glass p-8 rounded-2xl max-w-2xl mx-auto border border-violet-500/10">
-                <h3 class="text-xl font-bold mb-4 text-white">Start a Project</h3>
-                <form onsubmit="event.preventDefault(); alert('Thanks for reaching out! I\'ll get back to you soon.');" class="space-y-4 text-left">
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-violet-500 text-white placeholder-slate-500 transition-colors">
-                        <input type="email" placeholder="Your Email" required class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-violet-500 text-white placeholder-slate-500 transition-colors">
-                    </div>
-                    <select class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-violet-500 text-white transition-colors">
-                        <option value="" class="bg-slate-800">Project Type</option>
-                        <option value="uiux" class="bg-slate-800">UI/UX Design</option>
-                        <option value="brand" class="bg-slate-800">Brand Identity</option>
-                        <option value="marketing" class="bg-slate-800">Marketing Design</option>
-                        <option value="other" class="bg-slate-800">Other</option>
-                    </select>
-                    <textarea rows="4" placeholder="Tell me about your project..." required class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-violet-500 text-white placeholder-slate-500 transition-colors resize-none"></textarea>
-                    <button type="submit" class="w-full py-3 btn-primary rounded-lg font-medium text-white transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2">
-                        Send Message <i data-lucide="send" class="h-4 w-4"></i>
-                    </button>
-                </form>
+                <a href="mailto:tusharbhati0644@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 btn-primary rounded-full font-medium text-white">
+                    Start a Conversation <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
-        <p>© 2025 Tushar Bhati. Designed with passion.</p>
-        <p class="mt-2 text-xs text-violet-500/60">UI/UX & Visual Designer crafting digital experiences</p>
+    <footer class="py-8 border-t border-white/5 text-center">
+        <p class="text-slate-500 text-sm">© 2025 Tushar Bhati. Crafted with passion.</p>
     </footer>
 
+    <!-- Case Study Modal/Overlay (Hidden by default) -->
+    <div id="case-study-modal" class="fixed inset-0 z-[60] hidden overflow-y-auto bg-slate-950">
+        <!-- Modal content will be injected here -->
+    </div>
+
     <script>
+        // Initialize Lucide icons
         lucide.createIcons();
 
-        const titles = ["UI/UX Designer", "Visual Designer", "Brand Designer", "Digital Marketer"];
-        let titleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typewriterElement = document.getElementById('typewriter');
-
-        function typeWriter() {
-            const currentTitle = titles[titleIndex];
-            
-            if (isDeleting) {
-                typewriterElement.textContent = currentTitle.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typewriterElement.textContent = currentTitle.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === currentTitle.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                titleIndex = (titleIndex + 1) % titles.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(typeWriter, typeSpeed);
-        }
-
-        typeWriter();
-
+        // Mobile menu toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                }
-            });
-        });
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
 
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                navbar.classList.add('shadow-lg');
-                navbar.classList.add('bg-slate-950/90');
-                navbar.classList.add('backdrop-blur-md');
+                navbar.classList.add('shadow-lg', 'bg-slate-950/90');
             } else {
-                navbar.classList.remove('shadow-lg');
-                navbar.classList.remove('bg-slate-950/90');
-                navbar.classList.remove('backdrop-blur-md');
+                navbar.classList.remove('shadow-lg', 'bg-slate-950/90');
             }
         });
 
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -938,15 +720,224 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-slide-up');
-                    entry.target.style.opacity = '1';
+                    entry.target.classList.add('active');
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.glass, .project-card').forEach((el) => {
-            el.style.opacity = '0';
+        document.querySelectorAll('.reveal').forEach(el => {
             observer.observe(el);
+        });
+
+        // Case Study Data
+        const caseStudies = {
+            boliye: {
+                title: "Boliye AI",
+                subtitle: "AI Communication Platform Redesign",
+                color: "primary",
+                sections: [
+                    {
+                        title: "Problem",
+                        content: "Users struggled with complex navigation and unclear AI interaction patterns, leading to high drop-off rates and low engagement.",
+                        icon: "alert-circle"
+                    },
+                    {
+                        title: "Research",
+                        content: "Conducted 15+ user interviews, analyzed support tickets, and performed competitive analysis of 5 similar platforms.",
+                        icon: "search"
+                    },
+                    {
+                        title: "User Persona",
+                        content: "Created primary persona 'Tech-Savvy Professional' aged 25-35, seeking efficient communication tools with minimal learning curve.",
+                        icon: "user"
+                    },
+                    {
+                        title: "Pain Points",
+                        content: "Confusing onboarding, unclear AI capabilities, cluttered interface, lack of feedback during AI processing.",
+                        icon: "frown"
+                    },
+                    {
+                        title: "Wireframes",
+                        content: "Iterated through low-fi sketches to high-fi wireframes, testing 3 navigation patterns before finalizing.",
+                        icon: "layout"
+                    },
+                    {
+                        title: "Final UI Design",
+                        content: "Clean, conversational interface with clear visual hierarchy, progressive disclosure, and contextual guidance.",
+                        icon: "monitor"
+                    },
+                    {
+                        title: "Key Learnings",
+                        content: "AI products need transparent communication about capabilities. Progressive onboarding significantly improves retention.",
+                        icon: "lightbulb"
+                    }
+                ]
+            },
+            movie: {
+                title: "CineBook",
+                subtitle: "Movie Ticket Booking App",
+                color: "secondary",
+                sections: [
+                    {
+                        title: "Problem",
+                        content: "Users found existing movie booking apps cluttered and time-consuming, with too many steps to complete a booking.",
+                        icon: "alert-circle"
+                    },
+                    {
+                        title: "Research",
+                        content: "Surveyed 50+ moviegoers, analyzed app store reviews, and conducted task analysis of current booking flows.",
+                        icon: "search"
+                    },
+                    {
+                        title: "User Persona",
+                        content: "'Spontaneous Sarah' - 22-year-old student who books movies on-the-go, values speed and simplicity.",
+                        icon: "user"
+                    },
+                    {
+                        title: "Pain Points",
+                        content: "Too many screens, unclear seat selection, hidden fees, lack of movie recommendations.",
+                        icon: "frown"
+                    },
+                    {
+                        title: "Wireframes",
+                        content: "Designed 3-step booking flow: Browse → Select → Pay. Tested with 8 users and refined based on feedback.",
+                        icon: "layout"
+                    },
+                    {
+                        title: "Final UI Design",
+                        content: "Dark mode cinema aesthetic, gesture-based seat selection, transparent pricing, personalized recommendations.",
+                        icon: "smartphone"
+                    },
+                    {
+                        title: "Key Learnings",
+                        content: "Reducing steps from 7 to 3 increased completion rate by 40%. Visual seat maps need clear accessibility indicators.",
+                        icon: "lightbulb"
+                    }
+                ]
+            },
+            pm: {
+                title: "Internship Finder",
+                subtitle: "Product Management Project",
+                color: "accent",
+                sections: [
+                    {
+                        title: "Problem",
+                        content: "Students struggle to find relevant internships matching their skills and career goals across scattered platforms.",
+                        icon: "alert-circle"
+                    },
+                    {
+                        title: "Research",
+                        content: "Conducted market research, analyzed 3 competitor platforms, and surveyed 100+ students about pain points.",
+                        icon: "search"
+                    },
+                    {
+                        title: "User Persona",
+                        content: "'Ambitious Alex' - Final year student seeking tech internships, overwhelmed by options, needs guidance.",
+                        icon: "user"
+                    },
+                    {
+                        title: "Pain Points",
+                        content: "Irrelevant listings, complex application processes, no application tracking, lack of skill-matching.",
+                        icon: "frown"
+                    },
+                    {
+                        title: "Strategy",
+                        content: "Defined MVP features, created product roadmap, prioritized AI-powered matching algorithm for v2.",
+                        icon: "git-branch"
+                    },
+                    {
+                        title: "Solution",
+                        content: "Unified platform with skill-based matching, one-click apply, and application dashboard.",
+                        icon: "target"
+                    },
+                    {
+                        title: "Key Learnings",
+                        content: "Product-market fit requires deep user empathy. Data-driven prioritization prevents feature bloat.",
+                        icon: "lightbulb"
+                    }
+                ]
+            }
+        };
+
+        // Show Case Study
+        function showCaseStudy(id) {
+            const study = caseStudies[id];
+            if (!study) return;
+
+            const modal = document.getElementById('case-study-modal');
+            const colorClasses = {
+                primary: 'text-primary border-primary/30 bg-primary/10',
+                secondary: 'text-secondary border-secondary/30 bg-secondary/10',
+                accent: 'text-accent border-accent/30 bg-accent/10'
+            };
+
+            let sectionsHTML = study.sections.map((section, index) => `
+                <div class="case-study-section mb-16 reveal" style="transition-delay: ${index * 100}ms">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl ${colorClasses[study.color]} flex items-center justify-center">
+                            <i data-lucide="${section.icon}" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">${section.title}</h3>
+                    </div>
+                    <p class="text-slate-400 text-lg leading-relaxed pl-16">${section.content}</p>
+                </div>
+            `).join('');
+
+            modal.innerHTML = `
+                <div class="min-h-screen bg-slate-950">
+                    <!-- Header -->
+                    <div class="sticky top-0 z-10 glass border-b border-white/5">
+                        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+                            <button onclick="closeCaseStudy()" class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                                <i data-lucide="arrow-left" class="h-5 w-5"></i>
+                                <span class="text-sm font-medium">Back to Projects</span>
+                            </button>
+                            <span class="text-xs text-slate-500 uppercase tracking-wider">Case Study</span>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                        <!-- Title -->
+                        <div class="mb-16 text-center">
+                            <span class="px-3 py-1 ${colorClasses[study.color]} rounded-full text-xs font-medium uppercase tracking-wider mb-4 inline-block">
+                                ${study.subtitle}
+                            </span>
+                            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">${study.title}</h1>
+                            <div class="w-24 h-1 bg-gradient-to-r from-${study.color} to-transparent mx-auto rounded-full"></div>
+                        </div>
+
+                        <!-- Sections -->
+                        ${sectionsHTML}
+
+                        <!-- CTA -->
+                        <div class="mt-20 pt-10 border-t border-white/10 text-center reveal">
+                            <p class="text-slate-400 mb-6">Interested in seeing more details?</p>
+                            <a href="https://www.figma.com/@tusharbhati" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 btn-primary rounded-full font-medium text-white">
+                                View on Figma <i data-lucide="external-link" class="h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+            
+            // Reinitialize observer for new elements
+            modal.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+
+        function closeCaseStudy() {
+            const modal = document.getElementById('case-study-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCaseStudy();
         });
     </script>
 </body>
