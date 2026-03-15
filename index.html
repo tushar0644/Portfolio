@@ -61,6 +61,9 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
     <style>
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
@@ -773,7 +776,7 @@
         </div>
     </section>
 
-    <!-- Contact Section - FIXED -->
+    <!-- Contact Section - EMAILJS VERSION -->
     <section id="contact" class="py-24">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Let's Ensure <span class="gradient-text">Quality</span> Together</h2>
@@ -797,7 +800,7 @@
                 </a>
             </div>
 
-            <!-- Contact Form Container - FIXED -->
+            <!-- Contact Form Container -->
             <div class="glass p-8 rounded-2xl max-w-2xl mx-auto border border-violet-500/10 relative overflow-hidden">
                 
                 <!-- Success Message Overlay -->
@@ -839,10 +842,10 @@
                         <select id="opportunity_type" name="opportunity_type" required
                             class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 text-white transition-all appearance-none cursor-pointer">
                             <option value="" class="bg-slate-800 text-slate-400">Select Opportunity Type</option>
-                            <option value="internship" class="bg-slate-800">QA Internship</option>
-                            <option value="fresher" class="bg-slate-800">Fresher Role</option>
-                            <option value="project" class="bg-slate-800">Testing Project</option>
-                            <option value="other" class="bg-slate-800">Other Opportunity</option>
+                            <option value="QA Internship" class="bg-slate-800">QA Internship</option>
+                            <option value="Fresher Role" class="bg-slate-800">Fresher Role</option>
+                            <option value="Testing Project" class="bg-slate-800">Testing Project</option>
+                            <option value="Other Opportunity" class="bg-slate-800">Other Opportunity</option>
                         </select>
                         <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500 pointer-events-none"></i>
                     </div>
@@ -868,22 +871,16 @@
         </div>
     </section>
 
-    <!-- Supabase SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.min.js"></script>
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
+        <p>© 2025 Tushar Bhati. Built with attention to detail.</p>
+        <p class="mt-2 text-xs text-violet-500/60">QA Fresher ensuring quality software delivery</p>
+    </footer>
 
+    <!-- EmailJS Form Handler -->
     <script>
-        // FIXED: Clean credentials without any newlines or extra characters
-        const SUPABASE_URL = 'https://nprbhtybkgkypeaacymn.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wcmJodHlia2dreXBlYWFjeW1uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1OTg3NDQsImV4cCI6MjA4OTE3NDc0NH0.IS_JWDWqTancLD1zU-7p03TC999QE4D_2hES46QE8pM';
-        
-        // Initialize Supabase with error handling
-        let supabase;
-        try {
-            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-            console.log('✅ Supabase initialized successfully');
-        } catch (err) {
-            console.error('❌ Supabase initialization failed:', err);
-        }
+        // Initialize EmailJS - YAHAN APNI PUBLIC KEY DALO
+        emailjs.init("U9w0LmmTv2g60WBtK"); // <-- EmailJS Account > Account > Public Key
         
         // DOM Elements
         const form = document.getElementById('contact-form');
@@ -894,21 +891,25 @@
         const errorAlert = document.getElementById('error-alert');
         const errorText = document.getElementById('error-text');
 
-        // Form Submit Handler
+        // Form Submit Handler - EMAILJS VERSION
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             // Get form data
-            const formData = {
+            const templateParams = {
                 name: document.getElementById('name').value.trim(),
                 email: document.getElementById('email').value.trim(),
                 opportunity_type: document.getElementById('opportunity_type').value,
                 message: document.getElementById('message').value.trim(),
-                created_at: new Date().toISOString()
+                time: new Date().toLocaleString('en-IN', { 
+                    timeZone: 'Asia/Kolkata',
+                    dateStyle: 'full',
+                    timeStyle: 'short'
+                })
             };
             
             // Validate
-            if (!formData.name || !formData.email || !formData.opportunity_type || !formData.message) {
+            if (!templateParams.name || !templateParams.email || !templateParams.opportunity_type || !templateParams.message) {
                 showError('Please fill in all fields');
                 return;
             }
@@ -918,30 +919,23 @@
             hideError();
             
             try {
-                // Insert into Supabase
-                const { data, error } = await supabase
-                    .from('contact_messages')
-                    .insert([formData])
-                    .select();
+                // Send email using EmailJS
+                // YAHAN APNI SERVICE_ID AUR TEMPLATE_ID DALO
+                const result = await emailjs.send(
+                    'service_gh5clzz',    // <-- EmailJS > Email Services > Service ID
+                    'template_tw8xt9i',   // <-- EmailJS > Email Templates > Template ID
+                    templateParams
+                );
                 
-                if (error) {
-                    // Handle specific error codes
-                    if (error.code === '42501' || error.message.includes('row-level security')) {
-                        throw new Error('Database permission denied. Please contact admin.');
-                    }
-                    if (error.code === '42P01') {
-                        throw new Error('Table not found. Please check database setup.');
-                    }
-                    throw error;
-                }
+                console.log('Email sent successfully:', result.text);
                 
                 // Success
                 showSuccess();
                 form.reset();
                 
             } catch (err) {
-                console.error('Supabase Error:', err);
-                showError(err.message || 'Failed to send message. Please try again or email me directly at tusharbhati0644@gmail.com');
+                console.error('EmailJS Error:', err);
+                showError('Failed to send message. Please email me directly at tusharbhati0644@gmail.com');
                 setLoading(false);
             }
         });
@@ -980,12 +974,7 @@
         }
     </script>
 
-    <!-- Footer -->
-    <footer class="py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
-        <p>© 2025 Tushar Bhati. Built with attention to detail.</p>
-        <p class="mt-2 text-xs text-violet-500/60">QA Fresher ensuring quality software delivery</p>
-    </footer>
-
+    <!-- Other Scripts -->
     <script>
         // Initialize Lucide icons
         if (typeof lucide !== 'undefined') {
